@@ -124,10 +124,4 @@ angular.module('respondecoApp')
                 });
             }
         };
-    })
-    .directive('organizationMembers', function() {
-        return {
-            restrict: "E",
-            templateUrl: "templates/organization-members.html"
-        }
     });

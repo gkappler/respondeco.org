@@ -22,7 +22,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 /**
- * Test class for the UserService.
+ * Test class for the UserResource REST controller.
  *
  * @see UserService
  */
@@ -44,7 +44,7 @@ public class UserServiceTest {
 
     @Test
     public void testRemoveOldPersistentTokens() {
-        User admin = userRepository.findByLogin("admin");
+        User admin = userRepository.findOne("admin");
         int existingCount = persistentTokenRepository.findByUser(admin).size();
         generateUserToken(admin, "1111-1111", new LocalDate());
         LocalDate now = new LocalDate();
