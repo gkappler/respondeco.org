@@ -4,11 +4,15 @@
         "browsehappy": "Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href=\"http://browsehappy.com/?locale=de/\">aktualisieren Sie Ihren Browser</a>, um die Benutzerfreundlichkeit zu erhöhen.",
         "menu": {
             "home": "Startseite",
+            "organization": "Organisation",
+            "projects": "Projekte",
+            "proposals": "Angebote",
             "entities": {
                 "main": "Entities"
             },
             "account": {
                 "main": "Zugang",
+                "messages": "Nachrichten",
                 "settings": "Einstellungen",
                 "password": "Passwort",
                 "sessions": "Sitzungen",
@@ -26,6 +30,7 @@
             "language": "Sprache"
         },
         "form": {
+            "title": "Titel",
             "username": "Benutzername",
             "username.placeholder": "Ihr Benutzername",
             "newpassword": "Neues Passwort",
@@ -33,7 +38,88 @@
             "confirmpassword": "Neues Passwort bestätigen",
             "confirmpassword.placeholder": "Bestätigen Sie ihr neues Passwort",
             "email": "E-Mail Adresse",
-            "email.placeholder": "Ihre E-Mail Adresse"
+            "email.placeholder": "Ihre E-Mail Adresse",
+            "description": "Beschreibung",
+            "send": "Absenden",
+            "cancel": "Abbrechen",
+            "confirm": "Bestätigen",
+            "save": "Speichern"
+        },
+        "resource": {
+            "title":"Ressourcen",
+            "name": "Name",
+            "company": "Unternehmen",
+            "amount": "Anzahl",
+            "datefrom": "Verfügbar ab",
+            "dateto": "Verfügbar bis",
+            "commercial":"Kommerziell",
+            "recurrent":"Wiederkehrend",
+            "newbutton":"Neue Ressource anlegen",
+            "searchbutton":"Suchen",
+            "new": {
+                "title": "Neue Ressource anlegen",
+                "name": "Name",
+                "tags": "Tags",
+                "description": "Beschreibung",
+                "amount":"Anzahl",
+                "commercial":"Kommerzielle Ressource",
+                "recurrent":"Wiederkehrende Ressource",
+                "datefrom": "Verfügbar ab",
+                "dateto":"Verfügbar bis",
+                "savebutton":"Speichern",
+                "cancelbutton":"Abbrechen",
+                "error": "Ressource konnte nicht erstellt werden!"
+            },
+            "placeholder": {
+                "name": "Name der Ressource",
+                "description" : "Beschreibung der Ressource",
+                "amount" : "Anzahl der Ressourcen",
+                "tags": "Tags für Ressource",
+                "search": "Suchkriterien eingeben"
+            },
+            "own": {
+                "title": "Erstellte Ressourcen von",
+                "editbutton": "Bearbeiten",
+                "deletebutton": "Löschen"
+            }
+        },
+        "resource": {
+            "title":"Ressourcen",
+            "name": "Name",
+            "company": "Unternehmen",
+            "amount": "Anzahl",
+            "datefrom": "Verfügbar ab",
+            "dateto": "Verfügbar bis",
+            "commercial":"Kommerziell",
+            "recurrent":"Wiederkehrend",
+            "newbutton":"Neue Ressource anlegen",
+            "searchbutton":"Suchen",
+            "new": {
+                "title": "Neue Ressource anlegen",
+                "name": "Name",
+                "tags": "Tags",
+                "description": "Beschreibung",
+                "amount":"Anzahl",
+                "commercial":"Kommerzielle Ressource",
+                "recurrent":"Wiederkehrende Ressource",
+                "datefrom": "Verfügbar ab",
+                "dateto":"Verfügbar bis",
+                "savebutton":"Speichern",
+                "cancelbutton":"Abbrechen",
+                "error": "Ressource konnte nicht erstellt werden!"
+            },
+            "placeholder": {
+                "name": "Name der Ressource",
+                "description" : "Beschreibung der Ressource",
+                "amount" : "Anzahl der Ressourcen",
+                "tags": "Tags für Ressource",
+                "search": "Suchkriterien eingeben"
+            },
+            "own": {
+                "title": "Erstellte Ressourcen von",
+                "editbutton": "Bearbeiten",
+                "deletebutton": "Löschen"
+            }
         },
         "messages": {
             "info": {
@@ -60,12 +146,74 @@
                     "invalid": "Ihre E-Mail Adresse ist ungültig.",
                     "minlength": "Ihre E-Mail Adresse muss mindestens 5 Zeichen lang sein",
                     "maxlength": "Ihre E-Mail Adresse darf nicht länger als 50 Zeichen sein"
+                },
+                "description": {
+                    "maxlength": "Ihre Beschreibung darf nicht länger als 2048 Zeichen sein"
                 }
             }
+        },
+        "textmessages": {
+            "title": "Nachrichten",
+            "createmessage": "Neue Nachricht",
+            "sender": "Absender",
+            "date": "Datum",
+            "receiver": "Empfänger",
+            "content": "Nachricht",
+            "reply": "Antworten",
+            "delete": "Löschen",
+            "confirmdelete": "<strong>Nachricht wirklich löschen?</strong>",
+            "view": "Ansehen",
+            "from": "Von",
+            "atdate": "am",
+            "success": {
+                "delete": "<strong>Die Nachricht wurde erfolgreich gelöscht.</strong>",
+                "send": "<strong>Die Nachricht wurde erfolgreich versandt.</strong>"
+            },
+            "error": {
+                "delete": "<strong>Es ist ein Fehler aufgetreten!</strong> Die Nachricht konnte nicht gelöscht werden: ",
+                "send": "<strong>Es ist ein Fehler aufgetreten!</strong> Die Nachricht konnte nicht gesendet werden.",
+                "usernotfound": "<strong>Es ist ein Fehler aufgetreten!</strong> Der angegebene Empfänger existiert nicht.",
+                "receiverlength": "<strong>Es ist ein Fehler aufgetreten!</strong> Der Emfänger muss aus mindestens 1 Zeichen bestehen.",
+                "contentlength": "<strong>Es ist ein Fehler aufgetreten!</strong> Die Nachricht muss aus mindestens 1 Zeichen bestehen."
+            },
+            "validate": {
+                "receiver": {
+                    "minlength": "Der Empfänger muss aus mindestens 1 Zeichen bestehen."
+                },
+                "content": {
+                    "minlength": "Die Nachricht muss aus mindestens 1 Zeichen bestehen."
+                }
+            }
+        },
+        "textmessage": {
+            "title": "Nachricht von "
+        },
+        "projects": {
+            "title": "Projekte",
+            "createProject": {
+                "title": "Neues Projekt erstellen",
+                "tag":"Tag hinzufügen"
+            },
+            "details": {
+                "title": "Projektdetails",
+                "delete": "Löschen"
+            },
+            "categories": {
+                "title": "Kategorien",
+                "cat1": "Kategorie1",
+                "cat2": "Kategorie2"
+            },
+            "search": "Suchen",
+            "id": "Projekt-ID",
+            "name": "Name",
+            "purpose": "Vorhaben",
+            "concrete": "Konkretes Projekt",
+            "startDate": "Start-Datum",
+            "endDate": "End-Datum"
         }
     },
     "main": {
-        "title": "Willkommen, Java Hipster!",
+        "title": "Willkommen bei respondeco!",
         "subtitle": "Dies ist Ihre Hauptseite",
         "logged": {
             "message": "Sie sind als Benutzer \"{{username}}\" angemeldet."
@@ -121,18 +269,40 @@
             }
         }
     },
+    "general": {
+        "edit": "Bearbeiten",
+        "button": {
+            "save": "Speichern",
+            "cancel": "Abbrechen"
+        }
+    },
     "settings": {
         "title": "Einstellungen für Benutzer [<b>{{username}}</b>]",
         "form": {
+            "title": "Titel",
+            "title.placeholder": "Ihr akademischer Titel",
             "firstname": "Vorname",
             "firstname.placeholder": "Ihr Vorname",
             "lastname": "Nachname",
-            "lastname.placeholder": "Ihr Nachname",
-            "button": "Speichern"
+            "lastname.placeholder": "Ihr Nachname"
+        },
+        "account": {
+            "info_heading": "Account Informationen",
+            "profile_img_edit": "Neues Profilbild",
+            "title": "Titel",
+            "name": "Name",
+            "gender": "Geschlecht",
+            "email": "E-Mail",
+            "description": "Beschreibung",
+            "gender": "Geschlecht",
+            "button.save": "Speichern",
+            "button.delete": "Account löschen"
+
         },
         "messages": {
             "error": "<strong>Es ist ein Fehler aufgetreten!</strong> Die Einstellungen konnten nicht gespeichert werden.",
             "success": "<strong>Einstellungen wurden gespeichert!</strong>",
+            "account.deleted": "<strong>Ihr Account wurde erfolgreich gelöscht!</strong>",
             "validate": {
                 "firstname": {
                     "required": "Ihr Vorname wird benötigt.",
@@ -145,7 +315,8 @@
                     "maxlength": "Ihr Nachname darf nicht länger als 50 Zeichen sein"
                 }
             }
-        }
+        },
+        "leave": "Austreten"
     },
     "password": {
         "title": "Passwort für [<b>{{username}}</b>]",
@@ -169,7 +340,6 @@
             "success": "<strong>Sitzung wurde geschlossen!</strong>",
             "error": "<strong>Es ist ein Fehler aufgetreten!</strong> Die Sitzung konnte nicht geschlossen werden."
         }
-
     },
     "tracker": {
         "title": "Echtzeit Benutzer-Aktivitäten",
@@ -313,9 +483,38 @@
             }
         }
     },
+    "organization": {
+        "new": "Neue Organisation erstellen",
+        "name": "Name",
+        "name.placeholder": "Name der Organisation",
+        "description": "Beschreibung",
+        "description.placeholder": "Beschreibung der Organisation",
+        "edit": "{{ organization }} bearbeiten",
+        "title": "Titel der Organisation",
+        "email": "E-Mail",
+        "responsiblePerson": "Verantwortlicher",
+        "contact": "Ansprechperson",
+        "isNPO": "Non-Profit-Organisation",
+        "members": "Mitglieder",
+        "detail.heading": "{{ organization }}",
+        "delete": "Löschen",
+        "delete.sure": "Wirklich löschen?",
+        "back": "Zurück",
+        "members": "Mitglieder",
+        "invite": "Mitglieder einladen",
+        "invite.username": "Einzuladender Benutzer",
+        "action.invite": "Einladen",
+        "accept": "Einladung annehmen",
+        "decline": "Einladung ablehnen"
+    },
+    "orgJoinRequest": {
+        "pending": "Ausstehende Einladungen",
+        "accept": "Annehmen",
+        "openInvitations": "Offene Einladungen"
+    },
     "errors": {
         "title": "Fehlerseite!",
         "403": "Sie haben nicht die nötigen Berechtigungen diese Seite anzuzeigen."
     },
-    "footer": "Dies ist Ihre Fußzeile"
+    "footer": "&copy; by respondeco.org"
 }

@@ -1,6 +1,8 @@
 package org.respondeco.respondeco.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
@@ -16,13 +18,14 @@ import java.util.Set;
  * A user.
  */
 @Entity
+@Data
 @Table(name = "T_USER")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@ToString(exclude = {"persistentTokens", "authorities"}) // otherwise there will be errors in the log because authorities is lazy loaded
 public class User extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Size(min = 0, max = 50)
-    @Id
     @Column(length = 50)
     private String login;
 
@@ -30,6 +33,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size(min = 0, max = 100)
     @Column(length = 100)
     private String password;
+
+    @Column(name = "title", length = 20)
+    private String title;
+
+    @NotNull
+    @Column(name = "gender")
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Size(min = 0, max = 50)
     @Column(name = "first_name", length = 50)
@@ -44,12 +55,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 100)
     private String email;
 
+    @Column(name = "description", length = 2048)
+    private String description;
+
+    private Long orgId;
+
+    @JsonIgnore
     private boolean activated = false;
 
     @Size(min = 2, max = 5)
     @Column(name = "lang_key", length = 5)
     private String langKey;
 
+    @JsonIgnore
     @Size(min = 0, max = 20)
     @Column(name = "activation_key", length = 20)
     private String activationKey;
@@ -84,6 +102,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.password = password;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -106,6 +140,22 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 
     public boolean getActivated() {
@@ -139,7 +189,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
-    
+
     public Set<PersistentToken> getPersistentTokens() {
         return persistentTokens;
     }
@@ -159,29 +209,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
         User user = (User) o;
 
-        if (!login.equals(user.login)) {
+        if (getId() != user.getId()) {
             return false;
         }
 
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        return login.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", activated='" + activated + '\'' +
-                ", langKey='" + langKey + '\'' +
-                ", activationKey='" + activationKey + '\'' +
-                "}";
-    }
 }
